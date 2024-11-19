@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-form {
+  flex: 1; /* Prend autant d'espace que possible */
+  margin-right: 5px; /* Espacement entre les formulaires */
+}
+
+.right-form {
+  flex: 1; /* Prend autant d'espace que possible */
+}

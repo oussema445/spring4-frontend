@@ -1,0 +1,45 @@
+<img src="../assets/img/815912.png" width="1536" height="220">
+<div class="container">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Piece en tapant</label>
+        <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+        </div>
+        </form>
+
+
+
+    
+  
+
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Ref</th>
+            <th>nom de pièce</th>
+            <th>Modèle</th>
+            <th>Prix</th>
+            <th>Date de Mise</th>
+            <th>Nature</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let piece of pieces | searchFilter:searchTerm ">
+          <tr>
+            <td>{{piece.idPiece}}</td>
+            <td>{{piece.nomPiece}}</td>
+            <td>{{piece.model}}</td>
+            <td>{{piece.prixPiece}}</td>
+            <td>{{piece.dateCreation | date:'dd/MM/yyyy'}}</td>
+            <td>{{piece.nature.nomNat}}</td>
+            <!--
+              <td><a class="btn btn-danger" (click)="supprimerPiece(piece)">Supprimer</a></td>
+              <td><a class="btn btn-success" [routerLink]="['/updatePiece', piece.idPiece]">Modifier</a></td>
+            -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

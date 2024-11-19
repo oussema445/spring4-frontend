@@ -1,0 +1,33 @@
+<img src="../assets/img/815912.png"   width="1515" height="220">
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr> <th>REf </th><th>nom de Piéce</th> <th>Model</th> <th>Prix</th> <th>Date de Mise</th><th>nature</th><th>Image</th>  </tr>
+                <thead>
+                    <tr>
+                        <th>Liste des Piéces</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let piece of pieces">
+                    <tr>
+                        <td>{{piece.idPiece}}</td>
+                        <td>{{piece.nomPiece}}</td>
+                        <td>{{piece.model}}</td>
+                        <td>{{piece.prixPiece}}</td>
+                        <td>{{piece.dateCreation | date:'dd/MM/yyyy'}}</td>
+                         <td>{{piece.nature.nomNat}}</td> 
+                         <td><img class="card-img-top img-responsive"
+                            src = "{{piece.imageStr}}"
+                            style = "height :50px;width:100px">
+                            </td>
+                        <td><a *ngIf="authService.isAdmin()"
+                            class="btn btn-danger" (click)="supprimerPiece(piece)">Supprimer</a></td>
+                            <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updatePiece',piece.idPiece]">Modifier</a></td>
+                    </tr>
+                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

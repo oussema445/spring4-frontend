@@ -1,0 +1,51 @@
+<div class="container">
+
+    <form class="left-form" >
+        <div>
+            <h2>Modifier une Piéce :</h2>
+            </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Ref</label>
+            <input  readonly type="text" [(ngModel)]="currentPiece.idPiece" name="idPiece" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>nom de Piéce</label>
+            <input type="text" [(ngModel)]="currentPiece.nomPiece" name="nomPiece" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Modele</label>
+            <input type="text" [(ngModel)]="currentPiece.model" name="model" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Prix </label>
+            <input type="number" [(ngModel)]="currentPiece.prixPiece" name="prixPiece" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date De Mise</label>
+            <input type="date" [(ngModel)]="currentPiece.dateCreation" name="dateCreation" class="form-control">
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <label class="mb-2">Image :</label>
+            <input type="file" (change)="onImageUpload($event)" class="form-control">
+            </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <img [src]="myImage" class="card-img-top img-fluid rounded-start"
+            style="width: 500px; height: 300px" />
+            </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nature</label>
+            <select class="form-control form-control-lg" id="idNat" name="idNat" [(ngModel)]="updatedNatId">
+                <option *ngFor="let nat of natures" [value]="nat.idNat">
+                    {{nat.nomNat}}
+                </option>  
+            </select>
+        </div> 
+           
+<div class="mt-2">
+<button type="submit" (click)="updatePiece()" class="btn btn-success">Modifer</button>
+</div>
+</form>
+<form class="right-form">
+    <img src="../assets/img/200000.gif"   width="400" height="400"  >
+</form>
+</div>

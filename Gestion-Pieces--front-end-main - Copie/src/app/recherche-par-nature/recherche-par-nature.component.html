@@ -1,0 +1,43 @@
+<img src="../assets/img/815912.png" width="1536" height="220">
+<div class="container">
+  <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label><h2>Nature :</h2></label>
+    <select class="form-control form-control-lg" id="idNat" name="idNat" [(ngModel)]="id" (change)="onChange()">
+      <option *ngFor="let nat of Natures" [value]="nat.idNat">
+        {{nat.nomNat}}
+      </option>
+    </select>
+    
+  </div>
+  </div>
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Ref</th>
+            <th>nom de pièce</th>
+            <th>Modèle</th>
+            <th>Prix</th>
+            <th>Date de Mise</th>
+            <th>Nature</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let piece of pieces">
+            <td>{{piece.idPiece}}</td>
+            <td>{{piece.nomPiece}}</td>
+            <td>{{piece.model}}</td>
+            <td>{{piece.prixPiece}}</td>
+            <td>{{piece.dateCreation | date:'dd/MM/yyyy'}}</td>
+            <td>{{piece.nature.nomNat}}</td>
+            <!--
+              <td><a class="btn btn-danger" (click)="supprimerPiece(piece)">Supprimer</a></td>
+              <td><a class="btn btn-success" [routerLink]="['/updatePiece', piece.idPiece]">Modifier</a></td>
+            -->
+          </tr>
+        </tbody>
+      </table>
+    
+  </div>
+</div>
